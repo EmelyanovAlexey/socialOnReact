@@ -1,0 +1,37 @@
+.menu {
+  width: 15%;
+  position: fixed;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -moz-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  margin-top: 10vh;
+}
+.menuBlock {
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #404044;
+  border-bottom: 1px solid #404044;
+  transition: 0.4s;
+}
+.menuBlock:hover {
+  background-color: #404044;
+}
+.menuBlockActive {
+  background-color: #404044;
+}
+.menuBlock img {
+  width: 12%;
+  margin-right: 10px;
+}
+.menuBlock p {
+  text-transform: uppercase;
+}
