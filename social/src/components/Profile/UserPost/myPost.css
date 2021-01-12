@@ -1,0 +1,36 @@
+.myPosts {
+  width: 90%;
+  padding: 0;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.myPosts .blockPost {
+  border: 1px solid #fff;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+.myPosts .blockPost .imgUserPost {
+  width: 15%;
+}
+.myPosts .blockPost .imgUserPost img {
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  max-width: 80px;
+  min-width: 80px;
+  max-height: 80px;
+  min-height: 80px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.myPosts .blockPost .infoUserPost {
+  width: 85%;
+  min-height: 35px;
+}
+.myPosts .blockPost .postText {
+  margin: 0;
+}
+.myPosts .blockPost .dataPost {
+  text-align: right;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 5px;
+}

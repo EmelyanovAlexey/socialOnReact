@@ -38,7 +38,18 @@
   font-weight: bold;
   margin-right: 10px;
 }
+/*-----------*/
 .writePost {
   width: 90%;
   margin: 0 auto;
 }
+.writePostInput {
+  width: 99%;
+  resize: none;
+  height: 80px;
+  margin-top: 40px;
+  background-color: #000;
+  color: #fff;
+  font-size: 18px;
+}
+/*---------*/

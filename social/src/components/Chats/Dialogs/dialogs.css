@@ -1,0 +1,38 @@
+.listDialogs .blockLine {
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  border: 1px solid #404044;
+  padding: 5px;
+  transition: 0.4s;
+}
+.listDialogs .blockLine:hover {
+  cursor: pointer;
+  background-color: #404044;
+}
+.listDialogs .blockLine img {
+  max-width: 60px;
+  min-width: 60px;
+  max-height: 60px;
+  min-height: 60px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.listDialogs .blockLine .fio {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.listDialogs .blockLine .dateDialog {
+  font-size: 12px;
+  color: gray;
+  text-align: right;
+}
+.listDialogs .blockLineText {
+  width: 90%;
+}

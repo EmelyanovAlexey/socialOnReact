@@ -52,6 +52,9 @@ a {
   -ms-align-items: center;
   align-items: center;
 }
+.flex-start {
+  justify-content: flex-start;
+}
 .contentPage {
   margin-top: 20px;
   display: -moz-flex;

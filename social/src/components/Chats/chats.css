@@ -1,0 +1,114 @@
+.fullDialogs {
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: space-between;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+}
+.listDialogs {
+  width: 30%;
+  height: 80vh;
+  overflow-y: scroll;
+}
+.searchDialogBlock {
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: space-between;
+}
+.searchDialogBlock input {
+  width: 90%;
+  height: 35px;
+  border-radius: 20px;
+  padding-left: 5px;
+  font-size: 20px;
+  border: 0px solid red;
+  margin-right: 10px;
+}
+.searchDialogBlock button {
+  height: 35px;
+  width: 15%;
+  border-radius: 10%;
+  background-color: transparent;
+  transition: 0.4s;
+  border: 1px solid transparent;
+}
+.searchDialogBlock button:hover {
+  background-color: #404044;
+  cursor: pointer;
+}
+.searchDialogBlock img {
+  height: 25px;
+}
+.listDialogs::-webkit-scrollbar {
+  width: 18px;
+  height: 100vh;
+}
+.listDialogs::-webkit-scrollbar-thumb {
+  background: #fff;
+  border: 5px solid #3b4152;
+  border-radius: 10px;
+}
+/*-------------*/
+.dialog {
+  width: 68%;
+  height: 85vh;
+  border: 1px solid white;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -moz-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.allDialog {
+  height: 80%;
+  overflow-y: scroll;
+}
+.allDialog::-webkit-scrollbar {
+  width: 18px;
+  height: 100%;
+}
+.allDialog::-webkit-scrollbar-thumb {
+  background: #fff;
+  border: 5px solid #3b4152;
+  border-radius: 10px;
+}
+.sendDialog {
+  height: 10%;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  width: 95%;
+  margin: 0 auto;
+}
+.sendDialog .writeSmsChat {
+  height: 65px;
+  width: 90%;
+  font-size: 18px;
+  background-color: #000;
+  border: 1px solid #fff;
+  color: #fff;
+}
+.sendDialog button {
+  height: 70px;
+  width: 15%;
+  background-color: #404044;
+  border: 2px solid #404044;
+  transition: 0.4s;
+}
+.sendDialog button:hover {
+  background-color: transparent;
+  cursor: pointer;
+}
