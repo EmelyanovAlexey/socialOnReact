@@ -100,6 +100,7 @@
   background-color: #000;
   border: 1px solid #fff;
   color: #fff;
+  resize: none;
 }
 .sendDialog button {
   height: 70px;
@@ -107,6 +108,7 @@
   background-color: #404044;
   border: 2px solid #404044;
   transition: 0.4s;
+  font-size: 18px;
 }
 .sendDialog button:hover {
   background-color: transparent;
