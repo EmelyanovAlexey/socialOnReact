@@ -1,0 +1,61 @@
+.allDialog .blockDialog {
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 75%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: #404044;
+  margin-bottom: 7px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.allDialog .myDialog {
+  margin-left: 24.5%;
+}
+.allDialog .blockDialog .photo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+.allDialog .blockDialog img {
+  max-width: 50px;
+  min-width: 50px;
+  max-height: 50px;
+  min-height: 50px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.allDialog .blockDialog .info {
+  width: 89%;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -moz-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 45px;
+}
+.allDialog .blockDialog .name {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: underline;
+}
+.allDialog .blockDialog .text {
+  font-size: 20px;
+}
+.allDialog .blockDialog .data {
+  font-size: 18px;
+  text-align: right;
+  margin-top: 2px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.5);
+}

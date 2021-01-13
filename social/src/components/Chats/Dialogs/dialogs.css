@@ -8,6 +8,7 @@
   border: 1px solid #404044;
   padding: 5px;
   transition: 0.4s;
+  position: relative;
 }
 .listDialogs .blockLine:hover {
   cursor: pointer;
@@ -35,4 +36,16 @@
 }
 .listDialogs .blockLineText {
   width: 90%;
+}
+.listDialogs .noRiderChat {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 5px;
+  top: 5px;
+  font-size: 18px;
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+  border-radius: 50%;
 }
