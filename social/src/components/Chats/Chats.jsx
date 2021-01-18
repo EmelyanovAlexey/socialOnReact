@@ -5,65 +5,8 @@ import BlockDialog from "./BlockDialog/BlockDialog.jsx";
 
 import "./chats.css";
 
-const Chats = () => {
-  let dataListDialogs = [
-    {
-      id: 1,
-      img: "https://i.playground.ru/p/MdE1jjqrmXkxDlkYZ7D4bg.jpeg",
-      name: "Емельянов Алексей Алексеевич",
-      textData: "12.10.1998 12:18",
-      rider: 2,
-    },
-    {
-      id: 2,
-      img: "https://i.playground.ru/p/MdE1jjqrmXkxDlkYZ7D4bg.jpeg",
-      name: "Емельянов Алексей Алексеевич",
-      textData: "12.10.1998 12:18",
-      rider: 1,
-    },
-    {
-      id: 3,
-      img: "https://i.playground.ru/p/MdE1jjqrmXkxDlkYZ7D4bg.jpeg",
-      name: "Емельянов Алексей Алексеевич",
-      textData: "12.10.1998 12:18",
-      rider: 0,
-    },
-  ];
-
-  let dataDialog = [
-    {
-      id: 2,
-      img: "https://i.playground.ru/p/MdE1jjqrmXkxDlkYZ7D4bg.jpeg",
-      name: "Емельянов Алексей Алексеевич",
-      textData: "12.10.1998 12:18",
-      text: "asdasda",
-    },
-    {
-      id: 2,
-      img: "https://i.playground.ru/p/MdE1jjqrmXkxDlkYZ7D4bg.jpeg",
-      name: "Емельянов Алексей Алексеевич",
-      textData: "12.10.1998 12:18",
-      text: "asdasda",
-    },
-    {
-      id: 1,
-      img: "https://i.playground.ru/p/MdE1jjqrmXkxDlkYZ7D4bg.jpeg",
-      name: "Емельянов Алексей Алексеевич",
-      textData: "12.10.1998 12:18",
-      text: "asdasdasasad",
-    },
-    {
-      id: 2,
-      img: "https://i.playground.ru/p/MdE1jjqrmXkxDlkYZ7D4bg.jpeg",
-      name: "Емельянов Алексей Алексеевич",
-      textData: "12.10.1998 12:18",
-      text: "asdasda",
-    },
-  ];
-
-  let myId = 1;
-
-  let listDialogs = dataListDialogs.map((d) => (
+const Chats = (props) => {
+  let listDialogs = props.dataListDialogs.map((d) => (
     <Dialogs
       id={d.id}
       img={d.img}
@@ -73,10 +16,10 @@ const Chats = () => {
     />
   ));
 
-  let Dialog = dataDialog.map((d) => (
+  let Dialog = props.dataDialog.map((d) => (
     <BlockDialog
       id={d.id}
-      myId={myId}
+      myId={props.myId}
       img={d.img}
       name={d.name}
       textData={d.textData}

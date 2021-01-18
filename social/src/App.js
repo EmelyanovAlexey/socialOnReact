@@ -6,14 +6,31 @@ import Profile from "./components/Profile/Profile.jsx";
 import Chats from "./components/Chats/Chats.jsx";
 import "./mainStyle.css";
 
-const App = () => {
+const App = (props) => {
   return (
     <BrowserRouter>
       <Header />
       <section className="contentPage container">
         <Menu />
-        <Route path="/profile" render={() => <Profile />} />
-        <Route path="/chats" render={() => <Chats />} />
+        <Route
+          path="/profile"
+          render={() => (
+            <Profile
+              dataProfile={props.BD.dataProfile}
+              myPosts={props.BD.myPosts}
+            />
+          )}
+        />
+        <Route
+          path="/chats"
+          render={() => (
+            <Chats
+              dataListDialogs={props.BD.dataListDialogs}
+              dataDialog={props.BD.dataDialog}
+              myId={props.BD.dataProfile.id}
+            />
+          )}
+        />
       </section>
     </BrowserRouter>
   );
