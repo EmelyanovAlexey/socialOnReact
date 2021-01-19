@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 
-import store from "./Redux/state.js";
+import store from "./Redux/redux_store.js";
 
 export let renderEnterTree = () => {
   ReactDOM.render(
