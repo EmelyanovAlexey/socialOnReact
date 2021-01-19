@@ -1,7 +1,7 @@
 import React from "react";
 import MyPost from "./UserPost/MyPost.jsx";
 import "./profile.css";
-import { AddPostActionCreater } from "../../Redux/state.js";
+import { AddPostActionCreater } from "../../Redux/profileReducer.js";
 
 const Profile = (props) => {
   // переменные

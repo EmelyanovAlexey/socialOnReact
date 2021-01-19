@@ -1,5 +1,5 @@
-const ADD_CHAT_MASSAGE = "ADD_CHAT_MASSAGE";
-const ADD_MY_POST = "ADD_MY_POST";
+import profileReducer from "./profileReducer.js";
+import dialogsReducer from "./dialogsReducer.js";
 
 let store = {
   _state: {
@@ -103,29 +103,10 @@ let store = {
     this._renderEnterTree = observer;
   },
   dispatch(action) {
-    if (action.type === ADD_MY_POST) {
-      this._state.ProfilePage.myPosts.push(action.newPostJson);
-      this._renderEnterTree();
-    }
-    if (action.type === ADD_CHAT_MASSAGE) {
-      this._state.DialogsPage.dataDialog.push(action.newMassageJson);
-      this._renderEnterTree();
-    }
+    this._state.ProfilePage = profileReducer(this._state.ProfilePage, action);
+    this._state.DialogsPage = dialogsReducer(this._state.DialogsPage, action);
+    this._renderEnterTree();
   },
-};
-
-export const addMassageActionCreater = (newMassageJson) => {
-  return {
-    type: ADD_CHAT_MASSAGE,
-    newMassageJson: newMassageJson,
-  };
-};
-
-export const AddPostActionCreater = (newPostJson) => {
-  return {
-    type: ADD_MY_POST,
-    newPostJson: newPostJson,
-  };
 };
 
 export default store;

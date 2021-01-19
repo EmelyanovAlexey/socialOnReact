@@ -2,7 +2,7 @@ import React from "react";
 import Dialogs from "./Dialogs/Dialogs.jsx";
 import BlockDialog from "./BlockDialog/BlockDialog.jsx";
 import "./chats.css";
-import { addMassageActionCreater } from "./../../Redux/state.js";
+import { addMassageActionCreater } from "./../../Redux/dialogsReducer.js";
 
 const Chats = (props) => {
   // переменные
