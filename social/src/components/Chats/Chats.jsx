@@ -1,9 +1,8 @@
 import React from "react";
-
 import Dialogs from "./Dialogs/Dialogs.jsx";
 import BlockDialog from "./BlockDialog/BlockDialog.jsx";
-
 import "./chats.css";
+import { addMassageActionCreater } from "./../../Redux/state.js";
 
 const Chats = (props) => {
   // переменные
@@ -51,7 +50,7 @@ const Chats = (props) => {
       textData: date,
       text: newMassageElement.current.value,
     };
-    props.addChatMassage(newMassageJson);
+    props.dispatch(addMassageActionCreater(newMassageJson));
     newMassageElement.current.value = "";
   };
 

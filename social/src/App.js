@@ -16,9 +16,9 @@ const App = (props) => {
           path="/profile"
           render={() => (
             <Profile
-              dataProfile={props.BD.dataProfile}
-              myPosts={props.BD.myPosts}
-              addMyPost={props.addMyPost}
+              dataProfile={props.state.ProfilePage.dataProfile}
+              myPosts={props.state.ProfilePage.myPosts}
+              dispatch={props.dispatch}
             />
           )}
         />
@@ -26,10 +26,10 @@ const App = (props) => {
           path="/chats"
           render={() => (
             <Chats
-              dataListDialogs={props.BD.dataListDialogs}
-              dataDialog={props.BD.dataDialog}
-              myId={props.BD.dataProfile.id}
-              addChatMassage={props.addChatMassage}
+              dataListDialogs={props.state.DialogsPage.dataListDialogs}
+              dataDialog={props.state.DialogsPage.dataDialog}
+              myId={props.state.ProfilePage.dataProfile.id}
+              dispatch={props.dispatch}
             />
           )}
         />

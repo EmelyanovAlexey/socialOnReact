@@ -4,20 +4,19 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 
-import state from "./Redux/state.js";
-import { addMyPost, addChatMassage, subscribe } from "./Redux/state.js";
+import store from "./Redux/state.js";
 
-export let renderEnterTree = (state) => {
+export let renderEnterTree = () => {
   ReactDOM.render(
     <React.StrictMode>
-      <App BD={state} addMyPost={addMyPost} addChatMassage={addChatMassage} />
+      <App state={store.getState()} dispatch={store.dispatch.bind(store)} />
     </React.StrictMode>,
     document.getElementById("root")
   );
 };
 
 renderEnterTree();
-subscribe(renderEnterTree);
+store.subscribe(renderEnterTree);
 
 // ReactDOM.render(
 //   <React.StrictMode>

@@ -1,8 +1,7 @@
 import React from "react";
-
 import MyPost from "./UserPost/MyPost.jsx";
-
 import "./profile.css";
+import { AddPostActionCreater } from "../../Redux/state.js";
 
 const Profile = (props) => {
   // переменные
@@ -38,7 +37,7 @@ const Profile = (props) => {
       text: newPostElement.current.value,
       postData: date,
     };
-    props.addMyPost(newPostJson);
+    props.dispatch(AddPostActionCreater(newPostJson));
     newPostElement.current.value = "";
   };
 
