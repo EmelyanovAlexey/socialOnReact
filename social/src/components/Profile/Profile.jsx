@@ -5,10 +5,44 @@ import MyPost from "./UserPost/MyPost.jsx";
 import "./profile.css";
 
 const Profile = (props) => {
+  // переменные
+  let newPostElement = React.createRef();
+
+  // функции
   let myPost = props.myPosts.map((post) => (
-    <MyPost textPost={post.text} idPost={post.id} postData={post.postData} />
+    <MyPost
+      name={post.name}
+      textPost={post.text}
+      idPost={post.id}
+      postData={post.postData}
+    />
   ));
 
+  let addMyPost = () => {
+    let today = new Date();
+    let date =
+      today.getFullYear() +
+      "." +
+      String(today.getMonth() + 1).padStart(2, "0") +
+      "." +
+      String(today.getDate()).padStart(2, "0") +
+      " " +
+      String(today.getHours()).padStart(2, "0") +
+      ":" +
+      String(today.getMinutes()).padStart(2, "0");
+
+    let newPostJson = {
+      id: 4,
+      idUser: props.dataProfile.id,
+      name: props.dataProfile.name,
+      text: newPostElement.current.value,
+      postData: date,
+    };
+    props.addMyPost(newPostJson);
+    newPostElement.current.value = "";
+  };
+
+  // рендер
   return (
     <div className="content">
       <div className="profile">
@@ -55,8 +89,13 @@ const Profile = (props) => {
           </div>
 
           <div className="writePost">
-            <textarea className="writePostInput" name="" id=""></textarea>
-            <button className="noBtn">Отправить</button>
+            <textarea
+              className="writePostInput"
+              ref={newPostElement}
+            ></textarea>
+            <button className="noBtn" onClick={addMyPost}>
+              Отправить
+            </button>
           </div>
           <div className="myPosts">{myPost}</div>
         </div>

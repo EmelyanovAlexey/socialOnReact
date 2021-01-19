@@ -6,6 +6,10 @@ import BlockDialog from "./BlockDialog/BlockDialog.jsx";
 import "./chats.css";
 
 const Chats = (props) => {
+  // переменные
+  let newMassageElement = React.createRef();
+
+  // функции
   let listDialogs = props.dataListDialogs.map((d) => (
     <Dialogs
       id={d.id}
@@ -27,6 +31,30 @@ const Chats = (props) => {
     />
   ));
 
+  let addMassage = () => {
+    let today = new Date();
+    let date =
+      today.getFullYear() +
+      "." +
+      String(today.getMonth() + 1).padStart(2, "0") +
+      "." +
+      String(today.getDate()).padStart(2, "0") +
+      " " +
+      String(today.getHours()).padStart(2, "0") +
+      ":" +
+      String(today.getMinutes()).padStart(2, "0");
+
+    let newMassageJson = {
+      id: props.myId,
+      img: "https://i.playground.ru/p/MdE1jjqrmXkxDlkYZ7D4bg.jpeg",
+      name: "Емельянов Алексей Алексеевич",
+      textData: date,
+      text: newMassageElement.current.value,
+    };
+    props.addChatMassage(newMassageJson);
+    newMassageElement.current.value = "";
+  };
+
   return (
     <div className="content">
       <div className="fullDialogs">
@@ -41,8 +69,11 @@ const Chats = (props) => {
         <div className="dialog">
           <div className="allDialog">{Dialog}</div>
           <div className="sendDialog">
-            <textarea className="writeSmsChat" name="" id=""></textarea>
-            <button>Отправить</button>
+            <textarea
+              className="writeSmsChat"
+              ref={newMassageElement}
+            ></textarea>
+            <button onClick={addMassage}>Отправить</button>
           </div>
         </div>
       </div>

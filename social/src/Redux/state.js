@@ -1,3 +1,5 @@
+let renderEnterTree = () => {};
+
 let BD = {
   dataProfile: {
     id: 1,
@@ -10,10 +12,27 @@ let BD = {
     img: "https://i.playground.ru/p/MdE1jjqrmXkxDlkYZ7D4bg.jpeg",
   },
   myPosts: [
-    { id: 1, text: "первый пост", postData: "12.12.2020 14:22" },
-    { id: 2, text: "второй пост", postData: "12.10.2020 08:20" },
-    { id: 3, text: "третий пост", postData: "12.08.2020 16:30" },
-    { id: 3, text: "третий пост", postData: "12.08.2020 16:30" },
+    {
+      id: 1,
+      idUser: 1,
+      name: "Емельянов АА",
+      text: "первый пост",
+      postData: "12.12.2020 14:22",
+    },
+    {
+      id: 2,
+      idUser: 1,
+      name: "Емельянов АА",
+      text: "второй пост",
+      postData: "12.10.2020 08:20",
+    },
+    {
+      id: 3,
+      idUser: 1,
+      name: "Емельянов АА",
+      text: "третий пост",
+      postData: "12.08.2020 16:30",
+    },
   ],
   //--------------------------------------------------
   dataListDialogs: [
@@ -69,6 +88,20 @@ let BD = {
       text: "asdasda",
     },
   ],
+};
+
+export const addMyPost = (postJSON) => {
+  BD.myPosts.push(postJSON);
+  renderEnterTree();
+};
+
+export const addChatMassage = (massageJSON) => {
+  BD.dataDialog.push(massageJSON);
+  renderEnterTree();
+};
+
+export const subscribe = (observer) => {
+  renderEnterTree = observer;
 };
 
 export default BD;

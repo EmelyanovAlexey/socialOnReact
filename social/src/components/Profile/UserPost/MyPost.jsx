@@ -11,6 +11,7 @@ const MyPost = (props) => {
         />
       </div>
       <div className="infoUserPost column between">
+        <h4 className="postName">{props.name}</h4>
         <h3 className="postText">{props.textPost}</h3>
         <p className="dataPost">{props.postData}</p>
       </div>

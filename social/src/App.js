@@ -18,6 +18,7 @@ const App = (props) => {
             <Profile
               dataProfile={props.BD.dataProfile}
               myPosts={props.BD.myPosts}
+              addMyPost={props.addMyPost}
             />
           )}
         />
@@ -28,6 +29,7 @@ const App = (props) => {
               dataListDialogs={props.BD.dataListDialogs}
               dataDialog={props.BD.dataDialog}
               myId={props.BD.dataProfile.id}
+              addChatMassage={props.addChatMassage}
             />
           )}
         />
