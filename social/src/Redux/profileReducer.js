@@ -23,6 +23,7 @@ let initialState = {
 };
 
 const profileReducer = (state = initialState, action) => {
+  debugger;
   switch (action.type) {
     case ADD_MY_POST:
       state.myPosts.push(action.newPostJson);
@@ -34,6 +35,7 @@ const profileReducer = (state = initialState, action) => {
 };
 
 export const AddPostActionCreater = (newPostJson) => {
+  debugger;
   return {
     type: ADD_MY_POST,
     newPostJson: newPostJson,

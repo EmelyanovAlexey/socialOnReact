@@ -50,7 +50,7 @@ const Chats = (props) => {
       textData: date,
       text: newMassageElement.current.value,
     };
-    props.dispatch(addMassageActionCreater(newMassageJson));
+    props.addMassage(newMassageJson);
     newMassageElement.current.value = "";
   };
 

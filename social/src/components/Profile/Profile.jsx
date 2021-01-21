@@ -37,7 +37,7 @@ const Profile = (props) => {
       text: newPostElement.current.value,
       postData: date,
     };
-    props.dispatch(AddPostActionCreater(newPostJson));
+    props.AddPost(newPostJson);
     newPostElement.current.value = "";
   };
 
