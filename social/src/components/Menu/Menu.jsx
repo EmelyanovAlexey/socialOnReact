@@ -34,8 +34,16 @@ const Menu = () => {
         activeClassName="menuBlockActive"
         className="menuBlock"
       >
-        <img src="img/ico/friend.svg" alt="ico" />
+        <img src="img/ico/friends.svg" alt="ico" />
         <p>друзья</p>
+      </NavLink>
+      <NavLink
+        to="peopls"
+        activeClassName="menuBlockActive"
+        className="menuBlock"
+      >
+        <img src="img/ico/friend.svg" alt="ico" />
+        <p>люди</p>
       </NavLink>
       <NavLink
         to="settings"

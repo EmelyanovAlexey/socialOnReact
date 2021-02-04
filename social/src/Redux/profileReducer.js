@@ -23,19 +23,18 @@ let initialState = {
 };
 
 const profileReducer = (state = initialState, action) => {
-  debugger;
+  let stateCopy = { ...state };
   switch (action.type) {
     case ADD_MY_POST:
-      state.myPosts.push(action.newPostJson);
-      break;
+      stateCopy.myPosts = [...state.myPosts];
+      stateCopy.myPosts.push(action.newPostJson);
+      return stateCopy;
     default:
-      return state;
+      return stateCopy;
   }
-  return state;
 };
 
 export const AddPostActionCreater = (newPostJson) => {
-  debugger;
   return {
     type: ADD_MY_POST,
     newPostJson: newPostJson,

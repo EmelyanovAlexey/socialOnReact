@@ -4,6 +4,7 @@ import Header from "./components/Header/Header.jsx";
 import Menu from "./components/Menu/Menu.jsx";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import ChatContainer from "./components/Chats/ChatContainer.jsx";
+import PeoplsContainer from "./components/Peopls/PeoplsContainer.jsx";
 import "./mainStyle.css";
 
 const App = (props) => {
@@ -12,14 +13,9 @@ const App = (props) => {
       <Header />
       <section className="contentPage container">
         <Menu />
-        <Route
-          path="/profile"
-          render={() => <ProfileContainer store={props.store} />}
-        />
-        <Route
-          path="/chats"
-          render={() => <ChatContainer store={props.store} />}
-        />
+        <Route path="/profile" render={() => <ProfileContainer />} />
+        <Route path="/chats" render={() => <ChatContainer />} />
+        <Route path="/peopls" render={() => <PeoplsContainer />} />
       </section>
     </BrowserRouter>
   );

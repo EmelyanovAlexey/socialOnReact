@@ -1,21 +1,47 @@
 import React from "react";
 import Chats from "./Chats.jsx";
+import { connect } from "react-redux";
 import { addMassageActionCreater } from "./../../Redux/dialogsReducer.js";
 
-const ChatsContainer = (props) => {
-  let state = props.store.getState();
+// const ChatsContainer = (props) => {
+//   return (
+//     <StoreContext.Consumer>
+//       {(store) => {
+//         let state = store.getState();
 
-  let addMassage = (newMassageJson) => {
-    props.store.dispatch(addMassageActionCreater(newMassageJson));
+//         let addMassage = (newMassageJson) => {
+//           store.dispatch(addMassageActionCreater(newMassageJson));
+//         };
+
+//         return (
+//           <Chats
+//             addMassage={addMassage}
+//             dataListDialogs={state.DialogsPage.dataListDialogs}
+//             dataDialog={state.DialogsPage.dataDialog}
+//             myId={state.ProfilePage.dataProfile.id}
+//           />
+//         );
+//       }}
+//     </StoreContext.Consumer>
+//   );
+// };
+
+let mapStateToProps = (state) => {
+  return {
+    dataListDialogs: state.DialogsPage.dataListDialogs,
+    dataDialog: state.DialogsPage.dataDialog,
+    myId: state.ProfilePage.dataProfile.id,
   };
-
-  return (
-    <Chats
-      addMassage={addMassage}
-      dataListDialogs={state.DialogsPage.dataListDialogs}
-      dataDialog={state.DialogsPage.dataDialog}
-      myId={state.ProfilePage.dataProfile.id}
-    />
-  );
 };
-export default ChatsContainer;
+
+let mapDispatchToProps = (dispatch) => {
+  return {
+    addMassage: (newMassageJson) => {
+      dispatch(addMassageActionCreater(newMassageJson));
+    },
+  };
+};
+
+const SuperChatsContainer = connect(mapStateToProps, mapDispatchToProps)(Chats);
+
+export default SuperChatsContainer;

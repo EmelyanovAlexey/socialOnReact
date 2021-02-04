@@ -38,12 +38,13 @@ let initialState = {
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_CHAT_MASSAGE:
-      state.dataDialog.push(action.newMassageJson);
-      break;
+      let stateCopy = { ...state };
+      stateCopy.dataDialog = [...stateCopy.dataDialog];
+      stateCopy.dataDialog.push(action.newMassageJson);
+      return stateCopy;
     default:
       return state;
   }
-  return state;
 };
 
 export const addMassageActionCreater = (newMassageJson) => {

@@ -1,0 +1,20 @@
+.peopls {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+/* ----------------------------- */
+.peopls .filter {
+  width: 29%;
+}
+.peopls .filter input {
+  width: 80%;
+  font-size: 18px;
+}
+.peopls .filter button {
+  width: 20%;
+}
+/* ------------------------------ */
+.peopls .list-peopls {
+  width: 70%;
+}

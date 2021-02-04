@@ -1,0 +1,75 @@
+.peopls .list-peopls .block {
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  width: 98%;
+  padding: 5px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
+.peopls .list-peopls .block .photo {
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+  position: relative;
+}
+.peopls .list-peopls .block .photo img {
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  max-width: 60px;
+  min-width: 60px;
+  max-height: 60px;
+  min-height: 60px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.peopls .list-peopls .block .icoOnly {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  z-index: 10;
+  background-color: rgb(40, 122, 16);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  left: 75%;
+  bottom: -5px;
+}
+.peopls .list-peopls .info {
+  width: 90%;
+}
+.peopls .list-peopls .info .text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.peopls .list-peopls .info .name {
+  width: 85%;
+}
+.peopls .list-peopls .info .name:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.peopls .list-peopls .info .year {
+  width: 10%;
+  text-align: center;
+}
+.peopls .list-peopls .info .dopInfo {
+  margin-bottom: 15px;
+}
+.peopls .list-peopls .info .dopInfohide {
+  display: none;
+}
+.peopls .list-peopls .info .dopInfo h4 {
+  margin: 5px;
+}
+.peopls .list-peopls .info .btns {
+  display: flex;
+  justify-content: space-between;
+}
+.peopls .list-peopls .info button {
+  width: 45%;
+}
+.peopls .list-peopls .info .btnDisabled {
+  font-size: 18px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}

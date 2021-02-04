@@ -12,6 +12,7 @@ const Chats = (props) => {
   let listDialogs = props.dataListDialogs.map((d) => (
     <Dialogs
       id={d.id}
+      key={d.id}
       img={d.img}
       name={d.name}
       textData={d.textData}
@@ -22,6 +23,7 @@ const Chats = (props) => {
   let Dialog = props.dataDialog.map((d) => (
     <BlockDialog
       id={d.id}
+      key={d.id}
       myId={props.myId}
       img={d.img}
       name={d.name}

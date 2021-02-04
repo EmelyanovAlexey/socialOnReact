@@ -6,11 +6,11 @@ import { AddPostActionCreater } from "../../Redux/profileReducer.js";
 const Profile = (props) => {
   // переменные
   let newPostElement = React.createRef();
-
   // функции
   let myPost = props.myPosts.map((post) => (
     <MyPost
       name={post.name}
+      key={post.id}
       textPost={post.text}
       idPost={post.id}
       postData={post.postData}
@@ -37,7 +37,7 @@ const Profile = (props) => {
       text: newPostElement.current.value,
       postData: date,
     };
-    props.AddPost(newPostJson);
+    props.addMyPost(newPostJson);
     newPostElement.current.value = "";
   };
 
