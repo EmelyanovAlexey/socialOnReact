@@ -1,29 +1,41 @@
 import React from "react";
 import "./blockPiople.css";
+import * as axios from "axios";
 
 const BlockPiople = (props) => {
-  debugger;
+  if (props.users.length === 0) {
+    axios
+      .get("https://social-network.samuraijs.com/api/1.0/users")
+      .then((response) => {
+        debugger;
+        props.setUsers(response.data.items);
+      });
+  }
+  //https://i.playground.ru/p/MdE1jjqrmXkxDlkYZ7D4bg.jpeg
+
   return (
     <div className="list-peopls">
-      {props.peopls.map((u) => (
+      {props.users.map((u) => (
         <div className="block" key={u.id} id={u.id}>
           <div className="photo">
             <img
-              src="https://i.playground.ru/p/MdE1jjqrmXkxDlkYZ7D4bg.jpeg"
+              src={
+                u.photos.small != null ? u.photos.small : "img/image/photo.jpg"
+              }
               alt="photo"
             />
           </div>
           <div className="info">
             <div className="text">
               <h3 className="name">{u.name}</h3>
-              <h4 className="year">возраст {u.dateBirth}</h4>
+              {/* <h4 className="year">{u.status}</h4> */}
             </div>
-            <div className="dopInfo {if (isInfoShown) dopInfohide}">
+            {/* <div className="dopInfo {if (isInfoShown) dopInfohide}">
               <h4>город: {u.city}</h4>
               <h4>дата рождения: {u.dateBirth}</h4>
-            </div>
+            </div> */}
             <div className="btns">
-              {!u.follow ? (
+              {!u.followed ? (
                 <button
                   onClick={() => {
                     props.follow(u.id);

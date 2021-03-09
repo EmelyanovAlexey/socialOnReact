@@ -3,26 +3,7 @@ const UN_FOLLOW = "UN_FOLLOW";
 const SET_USERS = "SET_USERS";
 
 let initialState = {
-  users: [
-    {
-      id: 1,
-      name: "Емельянов Алексей Алексеевич 1 ",
-      dateBirth: "17.10.1998",
-      city: "Новосибирск",
-      img: "https://i.playground.ru/p/MdE1jjqrmXkxDlkYZ7D4bg.jpeg",
-      only: true,
-      follow: true,
-    },
-    {
-      id: 2,
-      name: "Емельянов Алексей Алексеевич 2 ",
-      dateBirth: "17.10.1998",
-      city: "Новосибирск",
-      img: "https://i.playground.ru/p/MdE1jjqrmXkxDlkYZ7D4bg.jpeg",
-      only: false,
-      follow: false,
-    },
-  ],
+  users: [],
 };
 
 const peoplsRebucer = (state = initialState, action) => {
@@ -32,8 +13,7 @@ const peoplsRebucer = (state = initialState, action) => {
         ...state,
         users: state.users.map((p) => {
           if (p.id === action.userId) {
-            debugger;
-            return { ...p, follow: true };
+            return { ...p, followed: true };
           }
           return p;
         }),
@@ -43,13 +23,14 @@ const peoplsRebucer = (state = initialState, action) => {
         ...state,
         users: state.users.map((p) => {
           if (p.id === action.userId) {
-            return { ...p, follow: false };
+            return { ...p, followed: false };
           }
           return p;
         }),
       };
     case SET_USERS:
-      return { ...state, users: [...state.users, ...action.users] };
+      debugger;
+      return { ...state, users: [...action.users] }; //...state.users,
     default:
       return state;
   }

@@ -6,6 +6,7 @@
   background-color: #404044;
   position: fixed;
   margin-top: -20px;
+  z-index: 100;
 }
 .headerContent {
   display: -moz-flex;
