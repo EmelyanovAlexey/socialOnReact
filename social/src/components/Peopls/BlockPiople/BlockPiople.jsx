@@ -2,66 +2,70 @@ import React from "react";
 import "./blockPiople.css";
 import * as axios from "axios";
 
-const BlockPiople = (props) => {
-  if (props.users.length === 0) {
+class BlockPiople extends React.Component {
+  constructor(props) {
+    super(props);
     axios
       .get("https://social-network.samuraijs.com/api/1.0/users")
       .then((response) => {
-        debugger;
-        props.setUsers(response.data.items);
+        this.props.setUsers(response.data.items);
       });
   }
-  //https://i.playground.ru/p/MdE1jjqrmXkxDlkYZ7D4bg.jpeg
 
-  return (
-    <div className="list-peopls">
-      {props.users.map((u) => (
-        <div className="block" key={u.id} id={u.id}>
-          <div className="photo">
-            <img
-              src={
-                u.photos.small != null ? u.photos.small : "img/image/photo.jpg"
-              }
-              alt="photo"
-            />
-          </div>
-          <div className="info">
-            <div className="text">
-              <h3 className="name">{u.name}</h3>
-              {/* <h4 className="year">{u.status}</h4> */}
+  render() {
+    return (
+      <div className="list-peopls">
+        {this.props.users.map((u) => (
+          <div className="block" key={u.id} id={u.id}>
+            <div className="photo">
+              <img
+                src={
+                  u.photos.small != null
+                    ? u.photos.small
+                    : "img/image/photo.jpg"
+                }
+                alt="photo"
+              />
             </div>
-            {/* <div className="dopInfo {if (isInfoShown) dopInfohide}">
+            <div className="info">
+              <div className="text">
+                <h3 className="name">{u.name}</h3>
+                {/* <h4 className="year">{u.status}</h4> */}
+              </div>
+              {/* <div className="dopInfo {if (isInfoShown) dopInfohide}">
               <h4>город: {u.city}</h4>
               <h4>дата рождения: {u.dateBirth}</h4>
             </div> */}
-            <div className="btns">
-              {!u.followed ? (
-                <button
-                  onClick={() => {
-                    props.follow(u.id);
-                  }}
-                  className="noBtn"
-                >
-                  добавить в друзья
-                </button>
-              ) : (
-                <button
-                  onClick={() => {
-                    props.unFollow(u.id);
-                  }}
-                  className="noBtn"
-                >
-                  удалить из друзей
-                </button>
-              )}
-              <button className="noBtn">подробнее</button>
+              <div className="btns">
+                {!u.followed ? (
+                  <button
+                    onClick={() => {
+                      this.props.follow(u.id);
+                    }}
+                    className="noBtn"
+                  >
+                    добавить в друзья
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => {
+                      this.props.unFollow(u.id);
+                    }}
+                    className="noBtn"
+                  >
+                    удалить из друзей
+                  </button>
+                )}
+                <button className="noBtn">подробнее</button>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
-    </div>
-  );
-};
+        ))}
+      </div>
+    );
+  }
+}
+
 export default BlockPiople;
 
 // function yearUser(data) {

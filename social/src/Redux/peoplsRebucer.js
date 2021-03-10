@@ -29,7 +29,6 @@ const peoplsRebucer = (state = initialState, action) => {
         }),
       };
     case SET_USERS:
-      debugger;
       return { ...state, users: [...action.users] }; //...state.users,
     default:
       return state;
