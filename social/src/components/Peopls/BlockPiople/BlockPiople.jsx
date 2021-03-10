@@ -4,14 +4,33 @@ import * as axios from "axios";
 
 class BlockPiople extends React.Component {
   componentDidMount() {
-    axios
-      .get("https://social-network.samuraijs.com/api/1.0/users")
-      .then((response) => {
-        this.props.setUsers(response.data.items);
-      });
+    this.getUser(this.props.currentPage);
   }
 
+  onPageChange = (currentPage) => {
+    this.props.setCurranrPage(currentPage);
+    this.getUser(currentPage);
+  };
+
+  getUser = (currentPage) => {
+    axios
+      .get(
+        `https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${this.props.pageSize}`
+      )
+      .then((response) => {
+        this.props.setUsers(response.data.items);
+        //this.props.setTotalUserCount(response.data.totalCount);
+      });
+  };
+
   render() {
+    let pagesCount = this.props.totalUserCount / this.props.pageSize;
+
+    let pages = [];
+    for (let i = 0; i < Math.ceil(pagesCount); i++) {
+      pages.push(i + 1);
+    }
+
     return (
       <div className="content">
         <div className="peopls">
@@ -23,6 +42,24 @@ class BlockPiople extends React.Component {
           </div>
 
           <div className="list-peopls">
+            <div className="carusel row center">
+              {pages.map((p) => {
+                return (
+                  <sapn
+                    className={
+                      this.props.currentPage === p
+                        ? "cur activePageCount"
+                        : "cur"
+                    }
+                    onClick={(e) => {
+                      this.onPageChange(p);
+                    }}
+                  >
+                    {p}
+                  </sapn>
+                );
+              })}
+            </div>
             {this.props.users.map((u) => (
               <div className="block" key={u.id} id={u.id}>
                 <div className="photo">

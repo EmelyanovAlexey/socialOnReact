@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.setUsersAC = exports.unFollowAC = exports.followAC = void 0;
+exports["default"] = exports.setTotalUserCountAC = exports.setCurranrPageAC = exports.setUsersAC = exports.unFollowAC = exports.followAC = void 0;
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -22,8 +22,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var FOLLOW = "FOLLOW";
 var UN_FOLLOW = "UN_FOLLOW";
 var SET_USERS = "SET_USERS";
+var SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+var SET_TOTAL_USER_COUNT = "SET_TOTAL_USER_COUNT";
 var initialState = {
-  users: []
+  users: [],
+  pageSize: 100,
+  totalUserCount: 1000,
+  currentPage: 1
 };
 
 var peoplsRebucer = function peoplsRebucer() {
@@ -63,6 +68,18 @@ var peoplsRebucer = function peoplsRebucer() {
       });
     //...state.users,
 
+    case SET_CURRENT_PAGE:
+      return _objectSpread({}, state, {
+        currentPage: action.currentPage
+      });
+    //...state.users,
+
+    case SET_TOTAL_USER_COUNT:
+      return _objectSpread({}, state, {
+        totalUserCount: action.totalUserCount
+      });
+    //...state.users,
+
     default:
       return state;
   }
@@ -94,5 +111,23 @@ var setUsersAC = function setUsersAC(users) {
 };
 
 exports.setUsersAC = setUsersAC;
+
+var setCurranrPageAC = function setCurranrPageAC(currentPage) {
+  return {
+    type: SET_CURRENT_PAGE,
+    currentPage: currentPage
+  };
+};
+
+exports.setCurranrPageAC = setCurranrPageAC;
+
+var setTotalUserCountAC = function setTotalUserCountAC(totalUserCount) {
+  return {
+    type: SET_TOTAL_USER_COUNT,
+    totalUserCount: totalUserCount
+  };
+};
+
+exports.setTotalUserCountAC = setTotalUserCountAC;
 var _default = peoplsRebucer;
 exports["default"] = _default;

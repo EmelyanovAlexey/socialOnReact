@@ -76,3 +76,22 @@
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.8);
 }
+.carusel {
+  justify-content: center;
+  margin-bottom: 5px;
+}
+.peopls .cur {
+  padding: 5px 10px 5px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  font-size: 18px;
+  transition: 0.4s;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.peopls .cur:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+}
+.peopls .activePageCount {
+  background-color: #67676d;
+}

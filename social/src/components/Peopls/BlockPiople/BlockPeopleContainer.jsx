@@ -4,11 +4,16 @@ import {
   followAC,
   unFollowAC,
   setUsersAC,
+  setCurranrPageAC,
+  setTotalUserCountAC,
 } from "../../../Redux/peoplsRebucer.js";
 
 let mapStateToProps = (state) => {
   return {
     users: state.UsersPage.users,
+    pageSize: state.UsersPage.pageSize,
+    totalUserCount: state.UsersPage.totalUserCount,
+    currentPage: state.UsersPage.currentPage,
   };
 };
 
@@ -22,6 +27,12 @@ let mapDispatchToProps = (dispatch) => {
     },
     setUsers: (users) => {
       dispatch(setUsersAC(users));
+    },
+    setCurranrPage: (currentPage) => {
+      dispatch(setCurranrPageAC(currentPage));
+    },
+    setTotalUserCount: (totalUserCount) => {
+      dispatch(setTotalUserCountAC(totalUserCount));
     },
   };
 };
