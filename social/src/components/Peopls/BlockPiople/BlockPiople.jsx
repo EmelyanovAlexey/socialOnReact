@@ -3,8 +3,7 @@ import "./blockPiople.css";
 import * as axios from "axios";
 
 class BlockPiople extends React.Component {
-  constructor(props) {
-    super(props);
+  componentDidMount() {
     axios
       .get("https://social-network.samuraijs.com/api/1.0/users")
       .then((response) => {
@@ -14,53 +13,64 @@ class BlockPiople extends React.Component {
 
   render() {
     return (
-      <div className="list-peopls">
-        {this.props.users.map((u) => (
-          <div className="block" key={u.id} id={u.id}>
-            <div className="photo">
-              <img
-                src={
-                  u.photos.small != null
-                    ? u.photos.small
-                    : "img/image/photo.jpg"
-                }
-                alt="photo"
-              />
+      <div className="content">
+        <div className="peopls">
+          <div className="filter">
+            <div className="row">
+              <input type="text" placeholder="поиск" />
+              <button className="noBtn">поиск</button>
             </div>
-            <div className="info">
-              <div className="text">
-                <h3 className="name">{u.name}</h3>
-                {/* <h4 className="year">{u.status}</h4> */}
-              </div>
-              {/* <div className="dopInfo {if (isInfoShown) dopInfohide}">
+          </div>
+
+          <div className="list-peopls">
+            {this.props.users.map((u) => (
+              <div className="block" key={u.id} id={u.id}>
+                <div className="photo">
+                  <img
+                    src={
+                      u.photos.small != null
+                        ? u.photos.small
+                        : "img/image/photo.jpg"
+                    }
+                    alt="photo"
+                  />
+                </div>
+                <div className="info">
+                  <div className="text">
+                    <h3 className="name">{u.name}</h3>
+                    {/* <h4 className="year">{u.status}</h4> */}
+                  </div>
+                  {/* <div className="dopInfo {if (isInfoShown) dopInfohide}">
               <h4>город: {u.city}</h4>
               <h4>дата рождения: {u.dateBirth}</h4>
             </div> */}
-              <div className="btns">
-                {!u.followed ? (
-                  <button
-                    onClick={() => {
-                      this.props.follow(u.id);
-                    }}
-                    className="noBtn"
-                  >
-                    добавить в друзья
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => {
-                      this.props.unFollow(u.id);
-                    }}
-                    className="noBtn"
-                  >
-                    удалить из друзей
-                  </button>
-                )}
-                <button className="noBtn">подробнее</button>
+                  <div className="btns">
+                    {!u.followed ? (
+                      <button
+                        onClick={() => {
+                          this.props.follow(u.id);
+                        }}
+                        className="noBtn"
+                      >
+                        добавить в друзья
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => {
+                          this.props.unFollow(u.id);
+                        }}
+                        className="noBtn"
+                      >
+                        удалить из друзей
+                      </button>
+                    )}
+                    <button className="noBtn">подробнее</button>
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     );
   }
